@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>文件上传示例</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    label {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      margin: 8px 0;
+      font-size: 0.9rem;
+    }
+
+    .filename {
+      font-weight: bold;
+    }
+
+    .filesize {
+      color: #999;
+    }
+
+    .submit-button {
+      margin-top: 16px;
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>文件上传示例</h1>
+    <form action="dasdasd" method="post">
+      <label for="file-input">选择文件</label>
+      <input id="file-input" type="file" name="file">
+      <ul id="file-list"></ul>
+      <button class="submit-button" type="submit">上传文件</button>
+    </form>
+  </div>
+  <script>
+    const fileInput = document.getElementById("file-input");
+    const fileList = document.getElementById("file-list");
+
+    fileInput.addEventListener("change", (event) => {
+      fileList.innerHTML = "";
+      const files = event.target.files;
+      for (let i = 0; i < files.length; i++) {
+        const li = document.createElement("li");
+        const filename = document.createElement("span");
+        filename.innerText = files[i].name;
+        filename.classList.add("filename");
+        const filesize = document.createElement("span");
+        filesize.innerText = `(${(files[i].size / 1024).toFixed(2)} KB)`;
+        filesize.classList.add("filesize");
+        li.append(filename, filesize);
+        fileList.append(li);
+      }
+    });
+  </script>
+</body>
+
+</html>
