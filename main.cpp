@@ -79,6 +79,7 @@ int main(int argc, char *argv[])
             int sockfd = events[i].data.fd;
             if(sockfd == listenfd) {
                 //有客户端连接进来
+                printf("new client\n");
                 struct sockaddr_in client_address;
                 socklen_t client_addrlen = sizeof(client_address);
                 int connfd = accept(listenfd, (struct sockaddr *)&client_address, &client_addrlen);

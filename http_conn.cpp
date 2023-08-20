@@ -192,8 +192,9 @@ http_conn::HTTP_CODE http_conn::process_read() {
         //获取一行数据
         text = get_line();
         m_start_line = m_checked_idx;
-
-        switch(m_check_state) {
+        printf("process_read\n");
+        switch (m_check_state)
+        {
         case CHECK_STATE_REQUESTLINE:
             ret = parse_request_line(text);
             if(ret == BAD_REQUEST)
@@ -356,6 +357,7 @@ http_conn::HTTP_CODE http_conn::parse_content(char *text) {
 }
 //解析一行，判断依据时\r\n
 http_conn::LINE_STATUS http_conn::parse_line() {
+    printf("解析一行\n");
     char temp;
     for (; m_checked_idx < m_read_idx; ++m_checked_idx) {
         temp = m_read_buf[m_checked_idx];

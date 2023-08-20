@@ -91,7 +91,7 @@ public:
 
 
 private:
-    const char *doc_root = "/home/zml/webserver/resources"; //文件根目录
+    const char *doc_root = "/what-can-i-do-/resources"; //文件根目录
     char m_real_file[FILENAME_LEN];     //请求的文件名称
     struct stat m_file_stat;            //请求的文件状态
     char *m_file_address;               //映射的文件地址

@@ -1,4 +1,4 @@
-GET / HTTP/1.1
+GET /index.html HTTP/1.1
 Host: 192.168.253.129:10000
 Connection: keep-alive
 Upgrade-Insecure-Requests: 1
